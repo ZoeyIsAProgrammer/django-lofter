@@ -1,0 +1,165 @@
+:root {
+    --greenish: #7C9D96;
+    --beigeish: #F4F2DE;
+    --more-beigeish: #f3e2c6;
+    --grey0: #8a8a8a;
+    --grey1: #444444;
+    --grey2: #333333;
+    --whiteish: #fafafa;
+}
+
+body {
+    background-color: var(--whiteish);
+    color: var(--grey2);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--grey1);
+}
+
+.mt-nav {
+    margin-top: 73px;
+}
+
+
+/* navbar */
+.navbar {
+    background-color: var(--greenish);
+}
+
+.navbar-brand,
+.nav-link {
+    color: var(--beigeish);
+}
+
+.navbar-brand:hover {
+    color: var(--beigeish);
+}
+
+.nav-link:hover {
+    color: var(--more-beigeish);
+}
+
+.navbar form input::placeholder {
+    color: rgb(158, 158, 158);
+}
+
+
+/* button */
+.btn-custom {
+    background-color: var(--greenish);
+    border: 1px solid var(--beigeish);
+    color: var(--beigeish);
+}
+
+.btn-custom:hover {
+    background-color: var(--beigeish);
+    border: 1px solid var(--greenish);
+    color: var(--greenish)
+}
+
+
+
+/* card */
+.post-list-card {
+    min-height: 185px;
+}
+
+.custom-card {
+    position: relative;
+    padding: 12px;
+    border: var(--grey0) solid 1px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.card-image {
+    position: absolute;
+    width: 100px;
+    height: 160px;
+}
+
+.card-image img {
+    max-width: 100px;
+    max-height: 150px;
+}
+
+.card-content {
+    margin-left: 115px;
+}
+
+.card {
+    border: var(--grey0) solid 1px;
+    color: var(--grey2);
+}
+
+.profile-card {
+    min-height: 200px;
+}
+
+.profile-image {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 90%;
+}
+
+.profile-image img {
+    width: 150px;
+}
+
+.profile-content {
+    position: relative;
+    margin-left: 165px;
+    margin-bottom: 40px;
+}
+
+.profile-content small {
+    position: absolute;
+    top: 2px;
+    left: 0;
+}
+
+.profile-button {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+}
+
+.like-part {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+}
+
+.content-part {
+    margin-bottom: 100px;
+}
+
+
+
+/* dropdown */
+.font-awesome{
+    width: 30px;
+    height: 30px;
+    border-radius: 90%;
+    cursor: default;
+}
+
+.font-awesome:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+a.dropdown-item {
+    cursor: default;
+}
+
+a.dropdown-item:hover {
+    background-color: rgb(230, 230, 230);
+}

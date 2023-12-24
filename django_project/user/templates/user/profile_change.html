@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}">{{message}}</div>
+{% endfor %}
+{% endif %}
+<div class="card p-3">
+    <div class="position-relative border-bottom pb-5 mb-4">
+        <div class="profile-image d-flex align-items-center justify-content-center">
+            <img src="{{user.profile.image.url}}" alt="">
+        </div>
+        <div class="profile-content">
+            <h5 class="text-center">{{user.username}}</h5>
+            <small class="text-muted">{{user.email}}</small>
+            <p>{{user.profile.introduction}}</p>
+        </div>
+    </div>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Profile Info</h2>
+        {{ u_form|crispy }}
+        {{ p_form|crispy }}
+        <div>
+            <button class="btn btn-custom mt-2" type="submit">Update</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

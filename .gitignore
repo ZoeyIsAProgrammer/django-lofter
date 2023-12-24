@@ -1,0 +1,8 @@
+.env
+venv
+doodle*
+posts.json
+.idea
+db.sqlite3
+cover_pictures
+profile_pictures

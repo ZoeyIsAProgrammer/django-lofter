@@ -1,0 +1,52 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="custom-card text-center">
+    <div class="content-part">
+        <div class="dropdown position-relative">
+            <span class="font-awesome d-flex align-items-center justify-content-center position-absolute end-0 top-0"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </span>
+            <ul class="dropdown-menu">
+                {% if user == post.author %}
+                <li>
+                    <a href="{% url 'blog-post-update' post.pk %}" class="dropdown-item">
+                        <i class="fa-solid fa-pen mx-2"></i> Update
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'blog-post-delete' post.id %}" class="dropdown-item">
+                        <i class="fa-solid fa-trash mx-2"></i> Delete
+                    </a>
+                </li>
+                {% endif %}
+                <li>
+                    <a href="" class="dropdown-item">
+                        <i class="fa-solid fa-flag mx-2"></i> Report
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <h2>{{ post.title }}</h2>
+        <small>{{ post.date_posted }}</small><a class="ms-2" href="">{{ post.author }}</a>
+        <p class="text-start mt-3">{{ post.subtitle }}</p>
+        <p class="text-start">{{ post.content }}</p>
+    </div>
+    <div id="likepart" class="like-part">
+        {% if user.is_authenticated %}
+        <form action="{% url 'post-like' object.id %}" method="POST">
+            {% csrf_token %}
+            {% if is_liked %}
+            <button type="submit" class="btn btn-custom">Unlike</button>
+            {% else %}
+            <button type="submit" class="btn btn-custom">Like</button>
+            {% endif %}
+        </form>
+        {% else %}
+        <a class="" href="{% url 'login' %}?next={{request.path}}#likepart">Log in to like this article!</a>
+        {% endif %}
+        <strong class="text-secondary">{{ number_of_likes }} Like{{ number_of_likes|pluralize }}</strong>
+    </div>
+
+</div>
+{% endblock %}
